@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "wahlen"
+version = "0.1.0"
+description = "Election data analysis toolkit"
+authors = [{name = "Matthias Daues", email = "your.email@example.com"}]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "jupyter>=1.0.0",
+    "altair>=5.0.0",
+    "psycopg2-binary>=2.9.0",
+    "aiosql>=9.0.0",   # SQL scripts as methods - clean separation of concerns
+    "pandas>=2.0.0",
+    "polars>=0.20.0",  # Modern alternative to pandas - faster, memory efficient
+]
+
+[project.optional-dependencies]
+dev = [
+    "ruff>=0.1.0",     # Linting and formatting - replaces black, flake8, isort
+    "pytest>=7.0.0",
+    "mypy>=1.0.0",
+]
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+select = ["E", "W", "F", "I", "N", "UP"]  # Essential rules only
+fix = true
+
+[tool.ruff.isort]
+known-first-party = ["wahlen"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+warn_return_any = true
