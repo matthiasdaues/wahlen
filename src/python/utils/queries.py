@@ -4,7 +4,7 @@ import aiosql
 from pathlib import Path
 
 # Navigate from utils folder to project root, then to sql folder
-_PROJECT_ROOT = Path(__file__).parent.parent.parent.parent
+_PROJECT_ROOT = Path(__file__).parent.parent.parent
 _SQL_PATH = _PROJECT_ROOT / "sql"
 
 # Load all .sql files as methods - supports nested folders for organization
